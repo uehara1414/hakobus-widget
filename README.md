@@ -3,6 +3,10 @@
 
 ## Requirements
 
+### Node.js
+
+Node.js v7.0.0
+
 ### For Debugging
 
 - electron-prebuilt
