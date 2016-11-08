@@ -1,30 +1,40 @@
-// electronモジュールを読み込み
 const electron = require('electron');
 const {app} = electron;
-const {BrowserWindow} = electron; //ウィンドウを表す[BrowserWindow]はelectronモジュールに含まれている
+const {BrowserWindow} = electron;
 
-// 新しいウィンドウ(Webページ)を生成
 let win;
+
 function createWindow() {
-  // BrowserWindowインスタンスを生成
-  win = new BrowserWindow({width: 800, height: 600});
-  // index.htmlを表示
+
+  const size = electron.screen.getPrimaryDisplay().size;
+
+  win = new BrowserWindow({
+    x: 100,
+    y: 100,
+    width: 200,
+    height: 300,
+    frame: false,
+    show: true,
+    transparent: false,
+    resizable: false
+  });
+
   win.loadURL(`file://${__dirname}/index.html`);
-  // デバッグするためのDevToolsを表示
-  win.webContents.openDevTools();
-  // ウィンドウを閉じたら参照を破棄
-  win.on('closed', () => {   // ()は　function ()と書いていい
+
+  win.setVisibleOnAllWorkspaces(true);
+
+  win.on('closed', () => {
     win = null;
   });
+
 }
-// アプリの準備が整ったらウィンドウを表示
+
 app.on('ready', createWindow);
-// 全てのウィンドウを閉じたらアプリを終了
+
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
     app.quit();
-  }
 });
+
 app.on('activate', () => {
   if (win === null) {
     createWindow();

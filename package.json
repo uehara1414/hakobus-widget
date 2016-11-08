@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/uehara1414/hakobus-widget/issues"
   },
-  "homepage": "https://github.com/uehara1414/hakobus-widget#readme"
+  "homepage": "https://github.com/uehara1414/hakobus-widget#readme",
+  "dependencies": {
+    "nodebl": "git+ssh://git@github.com/uehara1414/nodebl.git"
+  }
 }
