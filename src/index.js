@@ -2,8 +2,6 @@ const bl = require('nodebl');
 
 var d = window.document.getElementById("results");
 
-d = window.document.getElementById("results");
-
 d.innerText = info = "now loading...";
 
 bl.getBusLocationInformation(153, 165, (err, info)=> {
@@ -12,4 +10,3 @@ bl.getBusLocationInformation(153, 165, (err, info)=> {
         d.innerText += info[i].scheduledTime + "\n";
     }
 });
-
