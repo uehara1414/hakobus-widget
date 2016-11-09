@@ -6,7 +6,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <label for="departure">出発地</label>
+  <select onchange="changeRoute('departure', this.options[this.options.selectedIndex].text)" name="departure">
+    <option value="1">北海道</option>
+    <option value="2">東京</option>
+    <option value="3">沖縄</option>
+  </select><br>
+  <label for="arrival">到着地</label>
+  <select onchange="changeRoute('arrival', this.options[this.options.selectedIndex].text)" name="arrival">
+    <option value="1">北海道</option>
+    <option value="2">東京</option>
+    <option value="3">沖縄</option>
+  </select>
+
   <div id="results"></div>
+  <button onclick="notification()">Notify</button>
   <script src="index.js"></script>
 </body>
 </html>

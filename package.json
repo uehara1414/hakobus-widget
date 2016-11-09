@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/uehara1414/hakobus-widget#readme",
   "dependencies": {
+    "menubar": "^5.1.0",
     "nodebl": "git+ssh://git@github.com/uehara1414/nodebl.git"
   }
 }

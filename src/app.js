@@ -1,6 +1,19 @@
 const electron = require('electron');
 const {app} = electron;
 const {BrowserWindow} = electron;
+const menubar = require('menubar');
+
+var mb = menubar({ dir:__dirname + '/',
+                   icon:__dirname + '/bus.png',
+                   preloadWindow: true,
+                   windowPosition: 'trayLeft',
+                   width:200,
+                   height:300
+                 });
+mb.on('ready', function ready () {
+  console.log("Hello, menubar!");
+});
+
 
 let win;
 
@@ -29,6 +42,7 @@ function createWindow() {
 
 }
 
+/*
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
@@ -40,3 +54,4 @@ app.on('activate', () => {
     createWindow();
   }
 });
+*/
